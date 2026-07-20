@@ -1,6 +1,6 @@
 import type { ReimbursementData,ValidationErrors,PurchaseType,SignatureImages } from '../types/reimbursement';
 type Props={data:ReimbursementData;errors:ValidationErrors;signatures:SignatureImages;onChange:(patch:Partial<ReimbursementData>)=>void;onSignatureChange:(role:keyof SignatureImages,file?:File)=>void;onClear:()=>void};
-const ErrorText=({text}:{text?:string})=>text?<span className="error" role="alert">{text}</span>:null;
+const ErrorText=({text}:{text?:string})=>text?<span className="field-warning" role="status">⚠ {text}</span>:null;
 export function ReimbursementForm({data,errors,signatures,onChange,onSignatureChange,onClear}:Props){const field=(key:keyof ReimbursementData)=>(e:React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement>)=>onChange({[key]:e.target.value} as Partial<ReimbursementData>);const togglePurchase=(v:PurchaseType)=>onChange({purchaseTypes:data.purchaseTypes.includes(v)?data.purchaseTypes.filter(x=>x!==v):[...data.purchaseTypes,v]});return <>
  <section><h2>Informations générales</h2><div className="grid two">
   <label>Nom du groupe *<input value={data.groupName} onChange={field('groupName')} aria-invalid={!!errors.groupName}/><ErrorText text={errors.groupName}/></label>
