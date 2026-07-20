@@ -1,0 +1,1 @@
+import{describe,expect,it}from'vitest';import{imageToPdf}from'./fieldCoordinates';describe('imageToPdf',()=>{it('convertit depuis le coin supérieur gauche',()=>expect(imageToPdf(612,792,1224,1584)).toEqual({x:306,y:396}));it('tient compte de la hauteur',()=>expect(imageToPdf(0,0,612,792,20).y).toBe(772))});

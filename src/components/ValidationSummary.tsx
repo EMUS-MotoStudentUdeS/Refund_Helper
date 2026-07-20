@@ -1,0 +1,1 @@
+import type{ValidationErrors}from'../types/reimbursement';export function ValidationSummary({errors}:{errors:ValidationErrors}){const list=[...new Set(Object.values(errors).filter(Boolean))];return list.length?<div className="summary" role="alert"><strong>Veuillez corriger les éléments suivants :</strong><ul>{list.map(x=><li key={x}>{x}</li>)}</ul></div>:null}

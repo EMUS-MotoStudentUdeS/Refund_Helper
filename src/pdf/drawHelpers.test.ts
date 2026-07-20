@@ -1,0 +1,1 @@
+import{describe,expect,it}from'vitest';import{fitTextToWidth}from'./drawHelpers';describe('fitTextToWidth',()=>{it('réduit la taille sans dépasser le minimum',()=>{const font={widthOfTextAtSize:(t:string,s:number)=>t.length*s};expect(fitTextToWidth('12345',font,25,10,4)).toBe(5);expect(fitTextToWidth('123456789',font,1,10,4)).toBe(4)})});

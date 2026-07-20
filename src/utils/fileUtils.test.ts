@@ -1,0 +1,1 @@
+import{describe,expect,it}from'vitest';import{imageFit}from'./fileUtils';describe('imageFit',()=>{it('conserve les proportions',()=>expect(imageFit(1000,500,500,500)).toEqual({width:500,height:250,scale:.5}));it('limite par la hauteur',()=>expect(imageFit(100,400,300,200)).toEqual({width:50,height:200,scale:.5}))});
