@@ -27,6 +27,8 @@ Le modèle se trouve dans `public/assets/Remboursement Achat.pdf`. Il doit conse
 
 Les placements sont regroupés dans `src/pdf/fieldCoordinates.ts`. Les coordonnées `x` et `y` de pdf-lib partent du coin inférieur gauche.
 
+L’utilisateur peut aussi téléverser son propre modèle PDF depuis l’application. Les réponses sont dessinées sur sa première page avec les mêmes coordonnées que le modèle officiel. Dans un modèle de plusieurs pages, les pages suivantes restent dans leur ordre original. Les factures ajoutées sont ensuite placées après la dernière page du modèle téléversé. Le modèle personnalisé est temporaire et reste uniquement en mémoire dans le navigateur.
+
 ## Calibration des coordonnées
 
 Ouvrez l’application avec `?debugPdf=1`, par exemple :
@@ -64,8 +66,9 @@ Les versions récentes de Chrome, Edge, Firefox et Safari sont supportées. La m
 3. Essayer de générer sans facture et vérifier les erreurs près des champs.
 4. Ajouter plusieurs PDF et images, les réordonner, les tourner et en supprimer une.
 5. Ajouter un DOCX et confirmer l’avertissement de conversion approximative.
-6. Générer le document; vérifier le nom `Remboursement_Groupe_YYYY-MM-DD.pdf`, la page officielle en premier et toutes les pages des factures dans le bon ordre.
-7. Recharger la page; vérifier que seuls les champs autorisés ont été retenus. Effacer les informations mémorisées et recharger de nouveau.
-8. Tester à largeur téléphone, au clavier et avec un lecteur d’écran si disponible.
-9. Ouvrir `?debugPdf=1`, cliquer sur plusieurs lignes, afficher/masquer les rectangles et produire le PDF de calibration.
-10. Exécuter `npm test` et `npm run build` avant publication.
+6. Téléverser un modèle PDF de plusieurs pages; vérifier que la première page est remplie, que ses autres pages sont conservées et que toutes les pages des factures suivent dans le bon ordre.
+7. Retirer le modèle personnalisé, générer le document et vérifier le nom `Remboursement_Groupe_YYYY-MM-DD.pdf` ainsi que le retour au modèle officiel.
+8. Recharger la page; vérifier que seuls les champs autorisés ont été retenus. Effacer les informations mémorisées et recharger de nouveau.
+9. Tester à largeur téléphone, au clavier et avec un lecteur d’écran si disponible.
+10. Ouvrir `?debugPdf=1`, cliquer sur plusieurs lignes, afficher/masquer les rectangles et produire le PDF de calibration.
+11. Exécuter `npm test` et `npm run build` avant publication.
